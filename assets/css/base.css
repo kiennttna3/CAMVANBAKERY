@@ -1,0 +1,263 @@
+:root {
+    --primary-color: #EE4D2D;
+    --white-color: #fff;
+    --black-color: #000;
+    --web-color: #f8f2e8;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --header-height: 150px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /*HACK*/
+    font-size: 62.5%;
+    line-height: 1.6 rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    font-size: 30px;
+    line-height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.btncontrol {
+    font-size: 30px;
+    width: 150px;
+    margin-top: 10PX;
+}
+
+.col {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.col-third {
+    width: 33.33333%;
+}
+
+.col-full {
+    width: 25%;
+}
+
+.col-half {
+    width: 50%;
+}
+
+.app {
+    width: 1465px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f8f2e8;
+}
+
+.grid {
+    width: 1200px;
+    height: 150px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* Animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 0;
+        transform: translateX(140px)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes growth {
+    form {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+
+/* Modal */
+
+.modal, .modal__buy, .modal__cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+}
+.modal__cart {
+    display: none;
+}
+
+.modal__cart.open {
+    display: flex;
+}
+
+.modal__buy {
+    display: none;
+}
+
+.modal__buy.open {
+    display: flex;
+}
+
+.modal__buyer {
+    position: relative;
+    display: flex;
+    margin: 20px;
+}
+
+.modal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, #393939c9, #39393989), url(/CAMVANBAKERY/assets/img/camvanbanner3.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__overlayer {
+    width: 2600px;
+}
+
+.modal__body {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: var(--white-color);
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+    animation: fadeIn ease .5s;
+}
+
+.modal__bodyer {
+    position: relative;
+    width: 1200px;
+    margin-bottom: 100px;
+    background-color: var(--white-color);
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal__body__box-cart {
+    width: 1465px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal__body__cart {
+    position: relative;
+    width: 300px;
+    height: 3000px;
+    background-color: var(--white-color);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow: hidden;
+    z-index: 1;
+    animation: fadeOut ease .5s;
+}
+
+/* Button style */
+
+.btn {
+    min-width: 142px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6rem;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--disabled {
+    color: #949494;
+    cursor: default;
+    background-color: #c3c3c3;
+}
+
+#top-up {
+    font-size: 3rem;
+    cursor: pointer;
+    position: fixed;
+    z-index: 9999;
+    color: #004993;
+    bottom: 20px;
+    float: right;
+    display: none;
+    opacity: 0.8;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#top-up:hover {
+    color: #333
+}
