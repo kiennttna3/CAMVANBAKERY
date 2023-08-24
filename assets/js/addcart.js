@@ -70,7 +70,7 @@ function createCartItemElement(item) {
             <img class="modal__body__box__car-img" src="${item.image}" alt="">
             <div class="modal__body__box__car-info">
                 <div class="modal__body__box__car-title">${item.title}</div>
-                <div class="modal__body__box__car-price">${totalPrice.toFixed(0)}</div>
+                <div class="modal__body__box__car-price">${totalPrice.toFixed(0)}đ</div>
                 <div class="modal__body-control">
                     <button class="col col-third modal__body-remove modal__body__remove"><i class="fa-solid fa-minus"></i></button>
                     <input type="number" class="col col-third modal__body-quantity" value="${item.quantity}">
@@ -179,7 +179,7 @@ function deleteButtonClickHandler(event) {
     // Lưu thông tin giỏ hàng vào Local Storage sau khi xóa sản phẩm
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     // Xóa toàn bộ nội dung trong giỏ hàng và cập nhật lại bộ nhớ đệm của modal__body-cart
-    cartContent.innerHTML = '';
+    // cartContent.innerHTML = '';
     cartItems.length = 0; // Xóa tất cả phần tử trong mảng cartItems
     localStorage.removeItem('cartItems'); // Xóa khóa 'cartItems' khỏi localStorage
 }

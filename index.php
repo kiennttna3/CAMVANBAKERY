@@ -17,30 +17,23 @@ if (isset($_POST['logout'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- web -->
     <div class="app">
+        <!-- header -->
         <header class="header">
             <div class="grid">
                 <div class="header-with-search">
                     <div class="header__logo">
                         <a href="index"><img class="header__logo-img" src="./assets/img/camvanlogo.jpg" alt=""></a> 
                     </div>
-                    <div class="header__search">
-                        <input type="text" class="header__search-input" placeholder="Tìm kiếm...">
-                        <button class="header__search-btn">
-                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <div class="container__box__dropouter">
-                            <div class="container__boxer">
-                                <div class="container__box-imger">
-                                    <img class="container__shop-imger" src="" alt="">
-                                </div>
-                                <div class="container__box-texter">
-                                    <div class="container__shop-texter"></div>
-                                    <div class="container__price-buyer"></div>
-                                </div>
-                            </div>
+                    <form method="GET">
+                        <div class="header__search">
+                            <input type="text" name="search" class="header__search-input" placeholder="Tìm kiếm...">
+                            <button class="header__search-btn">
+                                <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            </button>                      
                         </div>
-                    </div>
+                    </form>
                     <div class="header__telephone">
                         <div class="header__background__size">
                             <i class="header__icon fa-solid fa-phone"></i>     
@@ -67,7 +60,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -83,7 +76,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -188,32 +181,45 @@ if (isset($_POST['logout'])) {
                 </div>                    
             </div>               
         </header>
+        <!-- container -->
         <div class="container">
             <div class="container__with-main">
                 <div class="container__with-text">
                     <h1>BÁNH TRUNG THU CẨM VÂN 2023</h1>
                 </div>
                 <div class="container__with-shop">
-                    <?php foreach ($products as $products):?>
+                    <?php foreach ($products as $product):?>
+                        <?php
+                            // Lọc sản phẩm dựa trên tên tìm kiếm nếu có
+                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+                            if (!empty($searchTerm) && stripos($product->name, $searchTerm) === false) {
+                                continue; // Bỏ qua sản phẩm không phù hợp với tên tìm kiếm
+                            }
+                        ?>
                         <div class="col col-full container__box">
                             <div class="container__box-img">
-                                <img class="container__shop-img" src="<?php echo $products->productimage?>" alt="">
+                                <img class="container__shop-img" src="<?php echo $product->imageUrl?>" alt="">
                             </div>
                             <div class="container__box-text">
-                                <div class="container__shop-text"><?php echo $products->productname?></div>
+                                <div class="container__shop-text"><?php echo $product->name?></div>
                             </div>
                             <div class="container__box-buy">
                                 <button class="js-accounts container__shop-buy">BUY</button>              
                             </div>
                             <div class="container__price-buy">
-                                <?php echo $products->productprice?>
+                                <?php echo $product->price?>đ
                             </div>
                         </div>
  			        <?php endforeach ?>
                 </div>
+                <div class="pagination">
+                    <button class="pagination__prev">Previous</button>
+                    <span class="pagination__page">Page 1 of 3</span>
+                    <button class="pagination__next">Next</button>
+                </div>
             </div>
         </div>
-
+        <!-- contact -->
         <div class="contact">
             <div class="contact__with-main">
                 <div class="contact__with-text">
@@ -240,7 +246,7 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>
         </div>
-        
+        <!-- footer -->
         <footer class="footer">
             <div class="footer__fix-size">
                 <div class="footer__with-all">
@@ -279,16 +285,19 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>      
         </footer>
+        <!-- footer-web -->
         <div class="footer__bottom">
             <div class="footer__blocker">
                 <div class="footer__copyright">Copyright © 2023 Cẩm Vân Bakery</div>
             </div>          
         </div>
+        <!-- scoll -->
         <div class="footer_scoll">
             <div title="Về đầu trang" id="top-up"> 
             <i class="footer__scoll__circle fa-solid fa-circle-chevron-up"></i></div>
         </div>
     </div>
+    <!-- product -->
     <div class="modal__buy">
         <div class="modal__overlay">
 
@@ -315,6 +324,7 @@ if (isset($_POST['logout'])) {
             </div>            
         </div>
     </div>
+    cart?
     <div class="modal__cart">
         <div class="modal__overlay">
 
@@ -401,9 +411,8 @@ if (isset($_POST['logout'])) {
         })
     </script>
     <script src="./assets/js/buyproduct.js"></script>
-    <script src="./assets/js/addsearch.js"></script>
     <script src="./assets/js/scrollnews.js"></script>
-    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/pagination.js"></script>
     <script src="./assets/js/addcart.js"></script>
     <script src="./assets/js/container.js"></script>
     <script src="./assets/js/timer.js"></script>

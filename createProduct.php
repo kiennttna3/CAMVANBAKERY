@@ -17,7 +17,9 @@ if (isset($_POST['logout'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- web -->
     <div class="app">
+        <!-- header -->
         <header class="header">
             <div class="grid">
                 <div class="header-with-search">
@@ -56,7 +58,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -72,7 +74,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -176,19 +178,20 @@ if (isset($_POST['logout'])) {
                     </div>
                 </div>                    
             </div>               
-        </header>     
+        </header>    
+        <!-- product --> 
         <div class="modal__buy modal__buyer">
             <div class="modal__bodyer">
                 <h1>Thêm thông tin sản phẩm</h1>
                 <form action="save-product" method="POST" enctype="multipart/form-data" style="font-size: 30px; line-height: 40px;">
                     <label>Tên sản phẩm:</label> <br>
-                    <input type="text" name="productname" placeholder="Please enter"> <br>
+                    <input type="text" name="name" placeholder="Please enter"> <br>
 
                     <label>Hình ảnh sản phẩm:</label> <br>
-                    <input type="file" name="productimage" placeholder="Please enter"> <br>
+                    <input type="file" name="imageUrl" placeholder="Please enter"> <br>
 
                     <label>Giá cả sản phẩm:</label> <br>
-                    <input type="text" name="productprice" placeholder="Please enter"> <br>
+                    <input type="text" name="price" placeholder="Please enter"> <br>
                     <div class="button">
                         <button class="btncontrol">Thêm</button>
                     </div>
@@ -198,6 +201,7 @@ if (isset($_POST['logout'])) {
                 </form>      
             </div>
         </div>
+        <!-- footer -->
         <footer class="footer">
             <div class="footer__fix-size">
                 <div class="footer__with-all">
@@ -236,16 +240,19 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>      
         </footer>
+        <!-- footer-web -->
         <div class="footer__bottom">
             <div class="footer__blocker">
                 <div class="footer__copyright">Copyright © 2023 Cẩm Vân Bakery</div>
             </div>          
         </div>
+        <!-- scoll -->
         <div class="footer_scoll">
             <div title="Về đầu trang" id="top-up"> 
             <i class="footer__scoll__circle fa-solid fa-circle-chevron-up"></i></div>
         </div>
     </div>
+    <!-- cart -->
     <div class="modal__cart">
         <div class="modal__overlay">
 
@@ -306,13 +313,15 @@ if (isset($_POST['logout'])) {
         })
     </script>
     <script src="./assets/js/buyproduct.js"></script>
-    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/scrollnews.js"></script>
+    <script src="./assets/js/pagination.js"></script>
     <script src="./assets/js/addcart.js"></script>
     <script src="./assets/js/container.js"></script>
-    <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/timer.js"></script>
+    <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/quantity.js"></script>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/register.js"></script>
     <script src="./assets/js/animationbuttonslideshow.js"></script>
     <script src="./assets/js/animationautoslideshow.js"></script>
 </html>

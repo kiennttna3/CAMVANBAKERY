@@ -352,7 +352,7 @@
 
 .container__with-shop {
     width: 1000px;
-    height: 1300px;
+    height: 1200px;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -396,6 +396,7 @@
     padding: 20px 0;
     font-weight: 800;
     font-size: 18px;
+    text-transform: uppercase;
 }
 
 .container__box-buy {
@@ -977,6 +978,7 @@
 .container__box-texter {
     width: 140px;
     float: right;
+    text-transform: uppercase;
 }
 
 .container__shop-texter {

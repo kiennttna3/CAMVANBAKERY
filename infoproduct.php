@@ -24,12 +24,14 @@ if (isset($_POST['logout'])) {
                     <div class="header__logo">
                         <a href="index"><img class="header__logo-img" src="./assets/img/camvanlogo.jpg" alt=""></a> 
                     </div>
-                    <div class="header__search">
-                        <input type="text" class="header__search-input" placeholder="Tìm kiếm...">
-                        <button class="header__search-btn">
-                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
+                    <form method="GET">
+                        <div class="header__search">
+                            <input type="text" name="search" class="header__search-input" placeholder="Tìm kiếm...">
+                            <button class="header__search-btn">
+                                <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            </button>                      
+                        </div>
+                    </form>
                     <div class="header__telephone">
                         <div class="header__background__size">
                             <i class="header__icon fa-solid fa-phone"></i>     
@@ -56,7 +58,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -72,7 +74,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -179,24 +181,22 @@ if (isset($_POST['logout'])) {
         </header>     
         <div class="modal__buy modal__buyer">
             <div class="modal__bodyer">
-                <form action="save-update-user">
-                    <div class="modal__body-box modal__body-boxer">
-                        <div class="modal__body-box-img modal__body-box-imger">
-                            <img class="modal__body-img modal__body-imger" src="" alt="">
+                <div class="modal__body-box modal__body-boxer">
+                    <div class="modal__body-box-img modal__body-box-imger">
+                        <img class="modal__body-img modal__body-imger" src="" alt="">
+                    </div>
+                    <div class="modal__body-title modal__body-titler">
+                        <div class="modal__body-text modal__body-texter"></div>
+                        <div class="modal__body-price modal__body-pricer"></div>
+                        <div class="modal__body-control modal__body-controller">
+                            <div class="modal__body__text modal__body__texter">Số lượng</div>
+                            <button class="col col-third modal__body-remove modal__body-remover" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
+                            <input type="number" id="quantity" class="col col-third modal__body-quantity modal__body-quantityer" value="1">
+                            <button class="col col-third modal__body-add modal__body-adder" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button>
+                            <button class="modal__body-cart modal__body-carter">Thêm vào giỏ hàng</button>
                         </div>
-                        <div class="modal__body-title modal__body-titler">
-                            <div class="modal__body-text modal__body-texter"></div>
-                            <div class="modal__body-price modal__body-pricer"></div>
-                            <div class="modal__body-control modal__body-controller">
-                                <div class="modal__body__text modal__body__texter">Số lượng</div>
-                                <button class="col col-third modal__body-remove modal__body-remover" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
-                                <input type="number" id="quantity" class="col col-third modal__body-quantity modal__body-quantityer" value="1">
-                                <button class="col col-third modal__body-add modal__body-adder" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button>
-                                <button class="modal__body-cart modal__body-carter">Thêm vào giỏ hàng</button>
-                            </div>
-                        </div>
-                    </div>  
-                </form>         
+                    </div>
+                </div>         
             </div>
         </div>
         <footer class="footer">
@@ -314,21 +314,23 @@ if (isset($_POST['logout'])) {
         const title = urlParams.get('title')
         const price = urlParams.get('price')
         // Hiển thị thông tin sản phẩm trong modal
-        const productImage = document.querySelector('.modal__body-img')
+        const imageUrl = document.querySelector('.modal__body-img')
         const productTitle = document.querySelector('.modal__body-text')
         const productPrice = document.querySelector('.modal__body-price')
-        productImage.src = imgSrc
+        imageUrl.src = imgSrc
         productTitle.textContent = title
         productPrice.textContent = price
     </script>
     <script src="./assets/js/buyproduct.js"></script>
-    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/scrollnews.js"></script>
+    <script src="./assets/js/pagination.js"></script>
     <script src="./assets/js/addcart.js"></script>
     <script src="./assets/js/container.js"></script>
     <script src="./assets/js/timer.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/quantity.js"></script>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/register.js"></script>
     <script src="./assets/js/animationbuttonslideshow.js"></script>
     <script src="./assets/js/animationautoslideshow.js"></script>
 </html>

@@ -17,7 +17,9 @@ if (isset($_POST['logout'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- web -->
     <div class="app">
+        <!-- header -->
         <header class="header">
             <div class="grid">
                 <div class="header-with-search">
@@ -56,7 +58,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -72,7 +74,7 @@ if (isset($_POST['logout'])) {
                                         <i class="header__icon header__icon-fix fa-solid fa-user"></i>
                                     </button> 
                                 </a> 
-                                <div class="header__text" style="font-size: 12px;">
+                                <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
                                     <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
                                 </div>  
@@ -177,6 +179,7 @@ if (isset($_POST['logout'])) {
                 </div>                    
             </div>               
         </header>     
+        <!-- product -->
         <div class="modal__buy modal__buyer">
             <div class="modal__bodyer">
                 <table>
@@ -190,9 +193,9 @@ if (isset($_POST['logout'])) {
  			        <?php foreach ($products as $products):?>
  			        	<tr>
  			        		<td><?php echo $products->id?></td>
-                            <td><?php echo $products->productname?></td>
- 			        		<td><img src="<?php echo $products->productimage?>" width="100" height="100"></td>
- 			        		<td><?php echo $products->productprice?></td>
+                            <td><?php echo $products->name?></td>
+ 			        		<td><img src="<?php echo $products->imageUrl?>" width="100" height="100"></td>
+ 			        		<td><?php echo $products->price?></td>
 			        		<td>
 			        			<a href="./update-product?id=<?php echo $products->id; ?>">Sửa</a>
 			        			<a href="./deleteProduct?id=<?php echo $products->id; ?>">Xóa</a>
@@ -202,6 +205,7 @@ if (isset($_POST['logout'])) {
  		        </table>         
             </div>
         </div>
+        <!-- footer -->
         <footer class="footer">
             <div class="footer__fix-size">
                 <div class="footer__with-all">
@@ -240,16 +244,19 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>      
         </footer>
+        <!-- footer-web -->
         <div class="footer__bottom">
             <div class="footer__blocker">
                 <div class="footer__copyright">Copyright © 2023 Cẩm Vân Bakery</div>
             </div>          
         </div>
+        <!-- scoll -->
         <div class="footer_scoll">
             <div title="Về đầu trang" id="top-up"> 
             <i class="footer__scoll__circle fa-solid fa-circle-chevron-up"></i></div>
         </div>
     </div>
+    <!-- cart -->
     <div class="modal__cart">
         <div class="modal__overlay">
 
@@ -310,13 +317,15 @@ if (isset($_POST['logout'])) {
         })
     </script>
     <script src="./assets/js/buyproduct.js"></script>
-    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/scrollnews.js"></script>
+    <script src="./assets/js/pagination.js"></script>
     <script src="./assets/js/addcart.js"></script>
     <script src="./assets/js/container.js"></script>
+    <script src="./assets/js/timer.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/quantity.js"></script>
-    <script src="./assets/js/timer.js"></script>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/register.js"></script>
     <script src="./assets/js/animationbuttonslideshow.js"></script>
     <script src="./assets/js/animationautoslideshow.js"></script>
 </html>

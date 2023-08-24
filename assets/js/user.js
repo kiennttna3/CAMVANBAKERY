@@ -5,7 +5,7 @@ function run() {
 	var phone = document.getElementById('auth-form__inputphone').value;
 	var password = document.getElementById('auth-form__inputpassword').value;
 	var confirm_password = document.getElementById('auth-form__inputconfirm').value;
-	
+
 	if(phone == "")
 	{
 		alert("số điện thoại không được để trống");
