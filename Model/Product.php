@@ -7,9 +7,5 @@
         public $tableName = 'products';
         // Gán danh sách cột dữ liệu của bảng
         public $columns = ['id','name','imageUrl','price'];
-        // Định nghĩa phương thức tìm kiếm sản phẩm theo tên
-        public function searchByName($name) {
-            return $this->searchByName($name); // Gọi phương thức của BaseModel
-        }
     }
 ?>

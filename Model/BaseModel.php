@@ -61,16 +61,17 @@
         }
         // Tìm kiếm bản ghi theo tên
         public function searchByName($name) {
+            $model = new static();
             // Xây dựng câu truy vấn SQL để tìm kiếm các bản ghi trong bảng tương ứng với tên chứa chuỗi name
-            $sql = "select * from $this->tableName where name like :name";
+            $sql = "select * from $model->tableName where name like :name";
             // Chuẩn bị câu truy vấn bằng cách sử dụng kết nối và câu truy vấn SQL
-            $stmt = $this->connect->prepare($sql);
+            $stmt = $model->connect->prepare($sql);
             // Gắn giá trị tham số cho tham số trong câu truy vấn, sử dụng phần trung tâm của LIKE với dấu % để tìm kiếm tên chứa chuỗi name
             $stmt->bindValue(':name', '%' . $name . '%', PDO::PARAM_STR);
             // Thực thi câu truy vấn
             $stmt->execute();
             // Lấy tất cả các dòng dữ liệu kết quả và chuyển chúng thành mảng đối tượng của lớp hiện tại (get_class($this))
-            $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));
+            $result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($model));
             // Trả về mảng các đối tượng chứa thông tin các bản ghi tìm thấy
             return $result;
         }

@@ -26,12 +26,14 @@ if (isset($_POST['logout'])) {
                     <div class="header__logo">
                         <a href="index"><img class="header__logo-img" src="./assets/img/camvanlogo.jpg" alt=""></a> 
                     </div>
-                    <div class="header__search">
-                        <input type="text" class="header__search-input" placeholder="Tìm kiếm...">
-                        <button class="header__search-btn">
-                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
+                    <form method="GET">
+                        <div class="header__search">
+                            <input type="text" name="search" class="header__search-input" placeholder="Tìm kiếm...">
+                            <button class="header__search-btn">
+                                <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </form>
                     <div class="header__telephone">
                         <div class="header__background__size">
                             <i class="header__icon fa-solid fa-phone"></i>     
@@ -190,17 +192,25 @@ if (isset($_POST['logout'])) {
  			        	<th>Giá cả</th>
 			        	<th><a href="./createProduct">Thêm</a></th>
  			        </tr>
- 			        <?php foreach ($products as $products):?>
- 			        	<tr>
- 			        		<td><?php echo $products->id?></td>
-                            <td><?php echo $products->name?></td>
- 			        		<td><img src="<?php echo $products->imageUrl?>" width="100" height="100"></td>
- 			        		<td><?php echo $products->price?></td>
-			        		<td>
-			        			<a href="./update-product?id=<?php echo $products->id; ?>">Sửa</a>
-			        			<a href="./deleteProduct?id=<?php echo $products->id; ?>">Xóa</a>
-			        		</td>
- 			        	</tr>
+ 			        <?php foreach ($products as $product):?>
+                        <?php
+                            // Check if a search term is provided and the product name contains the search term
+                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+                            $productName = $product->name;
+                            $displayProduct = empty($searchTerm) || stripos($productName, $searchTerm) !== false;
+                        ?>
+                        <?php if ($displayProduct): ?>
+ 			        	    <tr>
+ 			        	    	<td><?php echo $product->id?></td>
+                                <td><?php echo $product->name?></td>
+ 			        	    	<td><img src="<?php echo $product->imageUrl?>" width="100" height="100"></td>
+ 			        	    	<td><?php echo $product->price?>đ</td>
+			        	    	<td>
+			        	    		<a href="./update-product?id=<?php echo $product->id; ?>">Sửa</a>
+			        	    		<a href="./deleteProduct?id=<?php echo $product->id; ?>">Xóa</a>
+			        	    	</td>
+ 			        	    </tr>
+                        <?php endif; ?>
  			        <?php endforeach ?>
  		        </table>         
             </div>
