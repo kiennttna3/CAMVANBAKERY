@@ -194,9 +194,10 @@ if (isset($_POST['logout'])) {
  			        </tr>
  			        <?php foreach ($products as $product):?>
                         <?php
-                            // Check if a search term is provided and the product name contains the search term
-                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-                            $productName = $product->name;
+                            // Kiểm tra xem có giá trị tìm kiếm được cung cấp và tên sản phẩm chứa giá trị tìm kiếm
+                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : ''; // Lấy giá trị tìm kiếm từ tham số GET 'search'
+                            $productName = $product->name; // Lấy tên sản phẩm
+                            // Biến $displayProduct sẽ có giá trị true nếu không có giá trị tìm kiếm hoặc tên sản phẩm chứa giá trị tìm kiếm, ngược lại sẽ có giá trị false
                             $displayProduct = empty($searchTerm) || stripos($productName, $searchTerm) !== false;
                         ?>
                         <?php if ($displayProduct): ?>

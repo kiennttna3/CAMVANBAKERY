@@ -190,8 +190,9 @@ if (isset($_POST['logout'])) {
                 <div class="container__with-shop">
                     <?php foreach ($products as $product):?>
                         <?php
-                            // Lọc sản phẩm dựa trên tên tìm kiếm nếu có
-                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+                            // Lọc sản phẩm dựa trên tên tìm kiếm nếu có 
+                            $searchTerm = isset($_GET['search']) ? $_GET['search'] : ''; // Lấy giá trị tìm kiếm từ tham số GET 'search'
+                            // Nếu giá trị tìm kiếm không rỗng và không tìm thấy $searchTerm trong tên sản phẩm
                             if (!empty($searchTerm) && stripos($product->name, $searchTerm) === false) {
                                 continue; // Bỏ qua sản phẩm không phù hợp với tên tìm kiếm
                             }

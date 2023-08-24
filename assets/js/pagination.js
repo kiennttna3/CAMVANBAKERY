@@ -17,9 +17,9 @@ function updateVisibleItems() {
     const allItems = document.querySelectorAll('.container__with-shop .container__box')
     allItems.forEach((item, index) => {
         if (index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage) {
-            item.style.display = 'block'
+            item.style.display = 'block' // Hiển thị mục
         } else {
-            item.style.display = 'none'
+            item.style.display = 'none' // Ẩn mục
         }
     })
 }
@@ -27,16 +27,16 @@ function updateVisibleItems() {
 prevButton.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--
-        updatePageIndicator()
-        updateVisibleItems()
+        updatePageIndicator() // Cập nhật số trang
+        updateVisibleItems() // Cập nhật mục hiển thị trên trang
     }
 })
 // Xử lý sự kiện nút "Next"
 nextButton.addEventListener('click', () => {
     if (currentPage < totalPages) {
         currentPage++
-        updatePageIndicator()
-        updateVisibleItems()
+        updatePageIndicator() // Cập nhật số trang
+        updateVisibleItems() // Cập nhật mục hiển thị trên trang
     }
 })
 // Cập nhật thẻ hiển thị số trang và mục hiển thị ban đầu
