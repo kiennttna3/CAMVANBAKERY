@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 24, 2023 lúc 01:14 PM
+-- Thời gian đã tạo: Th8 26, 2023 lúc 10:02 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.3.29
 
@@ -31,26 +31,33 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `imageUrl` text COLLATE utf8_unicode_ci NOT NULL,
-  `price` double NOT NULL
+  `price` double NOT NULL,
+  `click` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `imageUrl`, `price`) VALUES
-(1, 'Bánh trung thu', 'assets/img/1692796328_banhmousse1.jpg', 200000),
-(2, 'Bánh trung thu', 'assets/img/1692796338_banhmousse2.jpg', 200000),
-(3, 'Bánh Ngọt', 'assets/img/1692795423_banhmousse8.jpg', 100000),
-(4, 'Bánh gato', 'assets/img/1692795460_banhmousse7.jpg', 500000),
-(5, 'Bánh tình yêu', 'assets/img/1692795541_banhmousse5.jpg', 100000),
-(6, 'Bánh trung thu', 'assets/img/1692795559_banhmousse2.jpg', 300000),
-(7, 'Bánh ngọt cv', 'assets/img/1692795590_banhmousse8.jpg', 300000),
-(8, 'Bánh nộm', 'assets/img/1692795605_banhmousse6.jpg', 180000),
-(9, 'Bánh đâu xanh', 'assets/img/1692795617_banhmousse3.jpg', 300000),
-(10, 'Bánh em đẹp lắm', 'assets/img/1692795990_banhmousse1.jpg', 4000000),
-(11, 'Bánh mỳ', 'assets/img/1692796012_banhmykhongem.jpg', 300000),
-(12, 'Bánh sú', 'assets/img/1692796366_banhmousse4.jpg', 300000000);
+INSERT INTO `products` (`id`, `name`, `imageUrl`, `price`, `click`) VALUES
+(1, 'Bánh 1', 'assets/img/1693021008_1.jpg', 200000, 0),
+(2, 'Bánh 2', 'assets/img/1693021014_2.jpg', 200000, 0),
+(3, 'Bánh 3', 'assets/img/1693021021_3.jpg', 100000, 0),
+(4, 'Bánh 4', 'assets/img/1693021028_4.jpg', 500000, 0),
+(5, 'Bánh 5', 'assets/img/1693021036_5.jpg', 100000, 0),
+(6, 'Bánh 6', 'assets/img/1693021044_6.jpg', 300000, 0),
+(7, 'Bánh 7', 'assets/img/1693021052_7.jpg', 300000, 0),
+(8, 'Bánh 8', 'assets/img/1693021059_8.jpg', 180000, 0),
+(9, 'Bánh 9', 'assets/img/1693021068_9.jpg', 300000, 0),
+(10, 'Bánh 10', 'assets/img/1693021076_10.jpg', 400000, 0),
+(11, 'Bánh 11', 'assets/img/1693021093_11.jpg', 300000, 0),
+(12, 'Bánh 12', 'assets/img/1693021114_12.jpg', 300000, 0),
+(14, 'Bánh 13', 'assets/img/1693021267_13.jpg', 200000, 0),
+(15, 'Bánh 14', 'assets/img/1693021289_14.jpg', 400000, 0),
+(16, 'Bánh 15', 'assets/img/1693021300_15.jpg', 100000, 0),
+(17, 'Bánh 16', 'assets/img/1693021313_16.jpg', 500000, 0),
+(18, 'Bánh 17', 'assets/img/1693021333_17.jpg', 380000, 0),
+(19, 'Bánh 18', 'assets/img/1693035089_18.jpg', 350000, 0);
 
 -- --------------------------------------------------------
 
@@ -98,7 +105,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `users`

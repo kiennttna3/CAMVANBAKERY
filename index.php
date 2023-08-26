@@ -221,7 +221,7 @@ if (isset($_POST['logout'])) {
             </div>
         </div>
         <!-- contact -->
-        <div class="contact">
+        <div class="contact" id="contact">
             <div class="contact__with-main">
                 <div class="contact__with-text">
                     <h1>VỀ CHÚNG TÔI</h1>
@@ -325,7 +325,7 @@ if (isset($_POST['logout'])) {
             </div>            
         </div>
     </div>
-    cart?
+    <!-- cart -->
     <div class="modal__cart">
         <div class="modal__overlay">
 

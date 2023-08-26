@@ -190,6 +190,7 @@ if (isset($_POST['logout'])) {
  			        	<th>Tên sản phẩm</th>
  			        	<th>Ảnh</th>
  			        	<th>Giá cả</th>
+ 			        	<th>click</th>
 			        	<th><a href="./createProduct">Thêm</a></th>
  			        </tr>
  			        <?php foreach ($products as $product):?>
@@ -206,6 +207,7 @@ if (isset($_POST['logout'])) {
                                 <td><?php echo $product->name?></td>
  			        	    	<td><img src="<?php echo $product->imageUrl?>" width="100" height="100"></td>
  			        	    	<td><?php echo $product->price?>đ</td>
+                                 <td><?php echo $product->click?></td>
 			        	    	<td>
 			        	    		<a href="./update-product?id=<?php echo $product->id; ?>">Sửa</a>
 			        	    		<a href="./deleteProduct?id=<?php echo $product->id; ?>">Xóa</a>

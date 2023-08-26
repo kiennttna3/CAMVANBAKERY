@@ -24,12 +24,14 @@ if (isset($_POST['logout'])) {
                     <div class="header__logo">
                         <a href="index"><img class="header__logo-img" src="./assets/img/camvanlogo.jpg" alt=""></a> 
                     </div>
-                    <div class="header__search">
-                        <input type="text" name="search" class="header__search-input" placeholder="Tìm kiếm...">
-                        <button class="header__search-btn">
-                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>                      
-                    </div>
+                    <form action="index" method="GET">
+                        <div class="header__search">
+                            <input type="text" name="search" class="header__search-input" placeholder="Tìm kiếm...">
+                            <button class="header__search-btn">
+                                <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            </button>                      
+                        </div>
+                    </form>
                     <div class="header__telephone">
                         <div class="header__background__size">
                             <i class="header__icon fa-solid fa-phone"></i>     
