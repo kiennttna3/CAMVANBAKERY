@@ -78,7 +78,7 @@ if (isset($_POST['logout'])) {
                                 </a> 
                                 <div class="header__text" style="font-size: 11px;">
                                     <?php echo $_SESSION['phonenumber']; ?>
-                                    <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px;"></form>
+                                    <form method="post"><input type="submit" name="logout" value="Đăng xuất" style="width: 70px;font-size: 12px; cursor: pointer;"></form>
                                 </div>  
                             </div>
 							<?php

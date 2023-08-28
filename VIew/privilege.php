@@ -195,25 +195,24 @@ if (isset($_POST['logout'])) {
  			        </tr>
  			        <?php foreach ($products as $product):?>
                         <?php
-                            // Kiểm tra xem có giá trị tìm kiếm được cung cấp và tên sản phẩm chứa giá trị tìm kiếm
+                            // Lọc sản phẩm dựa trên tên tìm kiếm nếu có 
                             $searchTerm = isset($_GET['search']) ? $_GET['search'] : ''; // Lấy giá trị tìm kiếm từ tham số GET 'search'
-                            $productName = $product->name; // Lấy tên sản phẩm
-                            // Biến $displayProduct sẽ có giá trị true nếu không có giá trị tìm kiếm hoặc tên sản phẩm chứa giá trị tìm kiếm, ngược lại sẽ có giá trị false
-                            $displayProduct = empty($searchTerm) || stripos($productName, $searchTerm) !== false;
+                            // Nếu giá trị tìm kiếm không rỗng và không tìm thấy $searchTerm trong tên sản phẩm
+                            if (!empty($searchTerm) && stripos($product->name, $searchTerm) === false) {
+                                continue; // Bỏ qua sản phẩm không phù hợp với tên tìm kiếm
+                            }
                         ?>
-                        <?php if ($displayProduct): ?>
- 			        	    <tr>
- 			        	    	<td><?php echo $product->id?></td>
-                                <td><?php echo $product->name?></td>
- 			        	    	<td><img src="<?php echo $product->imageUrl?>" width="100" height="100"></td>
- 			        	    	<td><?php echo $product->price?>đ</td>
-                                <td><?php echo $product->click_count?></td>
-			        	    	<td>
-			        	    		<a href="./update-product?id=<?php echo $product->id; ?>">Sửa</a>
-			        	    		<a href="./deleteProduct?id=<?php echo $product->id; ?>">Xóa</a>
-			        	    	</td>
- 			        	    </tr>
-                        <?php endif; ?>
+                        <tr>
+ 			        		<td><?php echo $product->id?></td>
+                            <td><?php echo $product->name?></td>
+ 			        		<td><img src="<?php echo $product->imageUrl?>" width="100" height="100"></td>
+ 			        		<td><?php echo $product->price?>đ</td>
+                            <td><?php echo $product->click_count?></td>
+			        		<td>
+			        			<a href="./update-product?id=<?php echo $product->id; ?>">Sửa</a>
+			        			<a href="./deleteProduct?id=<?php echo $product->id; ?>">Xóa</a>
+			        		</td>
+ 			        	</tr>
  			        <?php endforeach ?>
  		        </table>         
             </div>
