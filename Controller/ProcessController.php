@@ -12,7 +12,7 @@
         // Phương thức xử lý quá trình đăng nhập
         public function login() { 
             // Include tập tin login.php để sử dụng biểu mẫu đăng nhập
-            include_once 'login.php';
+            include_once 'View/login.php';
             // Kiểm tra xem nút đăng nhập đã được nhấn hay chưa
             if (isset($_POST['buttonlogin'])) {
                 // Lấy số điện thoại từ dữ liệu POST
@@ -40,11 +40,11 @@
         }
         // Phương thức hiển thị trang đăng ký
         public function register() {
-            include_once 'register.php';
+            include_once 'View/register.php';
         }
         // Phương thức hiển thị trang tạo sản phẩm
         public function createProduct() {
-            include_once 'createProduct.php';
+            include_once 'View/createProduct.php';
         }
         // Phương thức xử lý lưu thông tin đăng ký
         public function saveRegister() {
@@ -132,7 +132,7 @@
                 header("location:product");
             }
             // Hiển thị trang chỉnh sửa thông tin sản phẩm
-            include "editProduct.php";
+            include "View/editProduct.php";
         }
         // Phương thức xử lý lưu thông tin cập nhật sản phẩm
         public function saveUpdateProduct() {

@@ -18,14 +18,14 @@
                 $products = Product::all();
             }
             // Hiển thị trang quản lý sản phẩm với danh sách sản phẩm đã tìm kiếm hoặc toàn bộ sản phẩm
-            include "privilege.php";
+            include "View/privilege.php";
         }
         // Phương thức hiển thị danh sách tất cả sản phẩm
         public function index() {
             // Gọi phương thức lấy tất cả sản phẩm của lớp Product
             $products = Product::all();
             // Hiển thị trang danh sách tất cả sản phẩm
-            include "index.php";
+            include "View/index.php";
         }
     }
 ?>
