@@ -6,6 +6,6 @@
         // Gán tên bảng cơ sở dữ liệu cho đối tượng Product
         public $tableName = 'products';
         // Gán danh sách cột dữ liệu của bảng
-        public $columns = ['id','name','imageUrl','price','click'];
+        public $columns = ['id','name','imageUrl','price','click_count'];
     }
 ?>

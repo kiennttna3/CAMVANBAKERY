@@ -207,7 +207,7 @@ if (isset($_POST['logout'])) {
                                 <td><?php echo $product->name?></td>
  			        	    	<td><img src="<?php echo $product->imageUrl?>" width="100" height="100"></td>
  			        	    	<td><?php echo $product->price?>đ</td>
-                                 <td><?php echo $product->click?></td>
+                                <td><?php echo $product->click_count?></td>
 			        	    	<td>
 			        	    		<a href="./update-product?id=<?php echo $product->id; ?>">Sửa</a>
 			        	    		<a href="./deleteProduct?id=<?php echo $product->id; ?>">Xóa</a>

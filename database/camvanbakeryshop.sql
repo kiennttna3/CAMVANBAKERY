@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 26, 2023 lúc 10:02 AM
+-- Thời gian đã tạo: Th8 28, 2023 lúc 08:29 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.3.29
 
@@ -32,14 +32,14 @@ CREATE TABLE `products` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `imageUrl` text COLLATE utf8_unicode_ci NOT NULL,
   `price` double NOT NULL,
-  `click` int(100) NOT NULL
+  `click_count` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `imageUrl`, `price`, `click`) VALUES
+INSERT INTO `products` (`id`, `name`, `imageUrl`, `price`, `click_count`) VALUES
 (1, 'Bánh 1', 'assets/img/1693021008_1.jpg', 200000, 0),
 (2, 'Bánh 2', 'assets/img/1693021014_2.jpg', 200000, 0),
 (3, 'Bánh 3', 'assets/img/1693021021_3.jpg', 100000, 0),
